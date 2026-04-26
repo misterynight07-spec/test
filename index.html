@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senac RJ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="https://www.ap.senac.br/">
+    <style>
+        /* Reset e Fontes */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Cabecalho */
+        header {
+            background-color: #ffffff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 50px;
+            border-bottom: 4px solid #f39200; /* Linha laranja do Senac */
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 5px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 25px;
+            height: 25px;
+            background-color: #a0a0a0;
+            color: white;
+            text-decoration: none;
+            border-radius: 2px;
+            font-size: 12px;
+            transition: background-color 0.2s;
+        }
+        
+        .social-icons a:hover {
+            background-color: #777;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 40px 20px;
+        }
+
+        .card {
+            width: 100%;
+            max-width: 450px;
+            background-color: #ffffff;
+            border: 1px solid #dcdcdc;
+            border-radius: 3px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .card-header {
+            background-color: #f4f4f4;
+            padding: 12px 15px;
+            font-size: 13px;
+            color: #333;
+            border-bottom: 1px solid #dcdcdc;
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .center-logo {
+            display: block;
+            margin: 0 auto 30px auto;
+            width: 160px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        /* Formulários */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 12px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .input-wrapper {
+            display: flex;
+            align-items: center;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 3px;
+            height: 32px;
+            overflow: hidden;
+        }
+
+        .input-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 35px;
+            height: 100%;
+            border-right: 1px solid #ced4da;
+            color: #555;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+
+        .input-field {
+            flex: 1;
+            border: none;
+            background: transparent;
+            padding-left: 10px;
+            font-size: 12px;
+            color: #333;
+            outline: none;
+            width: 100%;
+            text-overflow: ellipsis;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #00447c; /* Azul Senac */
+            border-top: 4px solid #f39200;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            color: white;
+        }
+
+        .footer-logo {
+            width: 100px;
+            height: 35px;
+            object-fit: contain;
+        }
+
+        .copyright {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .footer-social .social-icons a {
+            background-color: white;
+            color: #00447c;
+        }
+
+        .footer-social .social-icons a:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* =========================================
+           MEDIA QUERIES (RESPONSIVIDADE)
+           ========================================= */
+
+        /* Tablets e telas médias */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 20px;
+            }
+
+            footer {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            header img{
+                width: 100px;
+                height: 59px;
+            }
+        }
+
+        /* Celulares e telas pequenas */
+        @media (max-width: 480px) {
+            main {
+                padding: 20px 15px;
+            }
+
+            .card-body {
+                padding: 20px 15px;
+            }
+
+            /* Mantém as duas colunas lado a lado como na imagem, mas diminui o gap */
+            .form-row {
+                gap: 8px; 
+            }
+
+            /* Ajustes finos para caber textos em duas colunas no celular */
+            .input-field {
+                font-size: 11px;
+                padding-left: 6px;
+            }
+
+            .input-icon {
+                width: 30px;
+                font-size: 11px;
+            }
+
+            .center-logo {
+                width: 140px;
+                height: 50px;
+                margin-bottom: 20px;
+            }
+
+            .logo-placeholder {
+                width: 100px;
+            }
+            header img .logo-placeholder{
+                width: 100px;
+                height: 59px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCEIS7xfbzXfhJp8TYKx4e8vE101U0Fo2itA&s" alt="Logo Senac" class="logo-placeholder">
+        
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <div class="card-header">
+                Dados da carteirinha
+            </div>
+            <div class="card-body">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCEIS7xfbzXfhJp8TYKx4e8vE101U0Fo2itA&s" alt="Logo Senac Grande" class="center-logo">
+
+                <div class="form-group">
+                    <label>Nome</label>
+                    <div class="input-wrapper">
+                        <div class="input-icon"><i class="fas fa-address-card"></i></div>
+                        <input type="text" class="input-field" value="NATHALIA DA COSTA OLIVEIRA SOARES" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row form-group">
+                    <div>
+                        <label>CPF</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon"><i class="fas fa-id-card"></i></div>
+                            <input type="text" class="input-field" value="419.334.208-55" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Data de nascimento</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon"><i class="far fa-calendar-alt"></i></div>
+                            <input type="text" class="input-field" value="09/07/2000" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Unidade</label>
+                    <div class="input-wrapper">
+                        <div class="input-icon"><i class="fas fa-square" style="color: #333;"></i></div>
+                        <input type="text" class="input-field" value="FACULDADE TECNO SENAC RIO" readonly>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Curso</label>
+                    <div class="input-wrapper">
+                        <div class="input-icon"><i class="fas fa-book"></i></div>
+                        <input type="text" class="input-field" value="TECNOLOGIA EM ANÁLISE E DESENVOLVIMENTO" readonly>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div>
+                        <label>Status</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon"><i class="far fa-check-square"></i></div>
+                            <input type="text" class="input-field" value="INSCRITO" readonly>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Validade</label>
+                        <div class="input-wrapper">
+                            <div class="input-icon"><i class="far fa-calendar-alt"></i></div>
+                            <input type="text" class="input-field" value="31/07/2027" readonly>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <img src="https://www.ba.senac.br/assets/template/images/senac_logo_branco.png" alt="Logo Senac Branco" class="footer-logo">
+        
+        <div class="copyright">
+            © Todos os Direitos Reservados - <span id="ano-atual">2026</span>
+        </div>
+
+        <div class="social-icons footer-social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = document.querySelectorAll('.input-field');
+            inputs.forEach(input => {
+                input.addEventListener('focus', (e) => {
+                    e.target.blur(); 
+                });
+            });
+        });
+    </script>
+</body>
+</html>
